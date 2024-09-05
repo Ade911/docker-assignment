@@ -1,0 +1,17 @@
+Create a User-Defined Bridge Network
+docker network create my-bridge-network
+
+Run Two Containers on the Same Network
+docker run -dit --name container1 --network my-bridge-network alpine sh
+
+Run the second container:
+docker run -dit --name container2 --network my-bridge-network alpine sh
+
+Test Communication Between the Containers
+docker exec -it container1 sh
+
+Ping container2 from inside container1:
+ping container2
+
+Exit the terminal of container1:
+Exit
