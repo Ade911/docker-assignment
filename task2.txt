@@ -1,0 +1,52 @@
+Creating and Managing Docker Containers:
+List all Docker containers on your system and provide the command used to list them.
+
+Currentoy Running Container
+ea775fc1d110   simple-css-app   "/docker-entrypoint.…"   11 seconds ago   Up 9 seconds   0.0.0.0:8080->80/tcp   charming_proskuriakova
+
+Command to know currently runnig container
+docker ps
+
+List all containers (including stopped ones):
+docker ps -a
+
+All containers
+
+CONTAINER ID   IMAGE            COMMAND                  CREATED          STATUS                      PORTS                  NAMES
+ea775fc1d110   simple-css-app   "/docker-entrypoint.…"   32 minutes ago   Up 32 minutes               0.0.0.0:8080->80/tcp   charming_proskuriakova
+313f03b2dcd8   ubuntu           "/bin/bash"              45 minutes ago   Exited (0) 45 minutes ago                          great_shamir
+4a9f313f47f5   app              "/docker-entrypoint.…"   7 hours ago      Exited (127) 7 hours ago                           nice_shaw 
+22e227d775ca   app              "/docker-entrypoint.…"   7 hours ago      Exited (127) 7 hours ago                           distracted_noether
+9279790d8b81   ff46083ca6c9     "docker-entrypoint.s…"   7 hours ago      Created                                            lucid_volhard
+76266404cef0   ubuntu:22.04     "/bin/bash"              24 hours ago     Exited (127) 23 hours ago                          my-ubuntu-container
+34830151e7a5   nginx            "/docker-entrypoint.…"   46 hours ago     Exited (255) 41 hours ago   80/tcp                 relaxed_joliot
+424a10fd5e20   httpd            "httpd-foreground"       46 hours ago     Exited (255) 17 hours ago   0.0.0.0:80->80/tcp     tender_meitner
+db449dde7341   nginx            "/docker-entrypoint.…"   2 days ago       Exited (255) 46 hours ago   80/tcp                 hopeful_nobel
+7aac79bd12b5   ubuntu           "/bin/bash"              2 days ago       Exited (0) 2 days ago                              determined_easley
+aee28d1854d1   ubuntu           "/bin/bash"              2 days ago       Exited (0) 24 hours ago                            inspiring_goldwasser
+
+
+
+
+
+Start, stop, and remove a Docker container. Provide the commands used for each action.
+
+ Start a Docker Container
+To start a Docker container that has been created but is not running, use:   
+docker start container_id_or_name
+use case: docker start 4a9f313f47f5fb53a3a52be56aaa69cd770d9e350fa1421a16f0576a8508264f
+
+
+Stop a Docker Container
+To stop a running Docker container, use:
+docker stop container_id_or_name
+use case: docker stop 4a9f313f47f5fb53a3a52be56aaa69cd770d9e350fa1421a16f0576a8508264f
+
+Remove a Docker Container
+To remove a stopped Docker container, use:
+docker rm container_id_or_name
+use case: docker rm 4a9f313f47f5fb53a3a52be56aaa69cd770d9e350fa1421a16f0576a8508264f
+
+Force remove a running container: If you need to forcefully remove a running container, you can use:
+docker rm -f container_id_or_name
+use case: docker rm -f 4a9f313f47f5fb53a3a52be56aaa69cd770d9e350fa1421a16f0576a8508264f

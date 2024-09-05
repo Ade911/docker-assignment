@@ -1,0 +1,11 @@
+Build the Docker Image
+docker build -t simple-css-app .
+
+Run the Docker Container
+docker run -d -p 8080:80 simple-css-app
+
+Fr Port Mapping and running the containier in a detached mode
+NOTE: This command will run your Docker container in detached mode (-d) and map port 8080 on your local machine to port 80 in the container.
+
+To View CSS code written
+Open a web browser and go to http://localhost:8080. You should see a simple web page styled with your style.css file.
