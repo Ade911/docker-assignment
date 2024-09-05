@@ -1,0 +1,92 @@
+/* You do **not** need to create a file to run these Docker commands. Instead, you should execute them directly in the **terminal**. Here's a step-by-step explanation of how to do this in **VS Code** or any other terminal:
+
+Steps to Run the Docker Commands in VS Code Terminal:
+
+#### 1. **Open the VS Code Terminal**
+
+- In **VS Code**, open a terminal by pressing `Ctrl + `` (backtick) or go to **Terminal > New Terminal** in the top menu.
+- Alternatively, you can use the terminal on your local machine directly.
+
+#### 2. **Run Each Docker Command**
+
+You will run the commands **one by one** directly in the terminal.
+
+### Step-by-Step Execution:
+
+#### Step 1: Create and run a Docker container with a mounted volume
+
+Run this command to create a container with a volume named `my-volume` mounted to `/data` inside the container.
+
+```bash
+docker run -dit --name my-container -v my-volume:/data alpine sh
+```
+
+This command:
+- Runs an `alpine` container.
+- Creates and mounts a volume `my-volume` to the `/data` directory.
+
+#### Step 2: Access the running container
+
+Run this command to enter the container:
+
+```bash
+docker exec -it my-container sh
+```
+
+This opens an interactive shell in the container.
+
+#### Step 3: Write data to the volume
+
+Once inside the container's shell, create a file in the `/data` directory:
+
+```bash
+echo "This is persistent data" > /data/test.txt
+```
+
+This creates a file named `test.txt` with the content "This is persistent data".
+
+#### Step 4: Stop and remove the container
+
+Now, exit the container's shell by typing `exit`. Then, stop and remove the container:
+
+```bash
+docker stop my-container
+docker rm my-container
+```
+
+This stops and removes the container, but the data stored in `my-volume` will persist.
+
+#### Step 5: Run a new container with the same volume
+
+Run a new container using the same volume:
+
+```bash
+docker run -dit --name new-container -v my-volume:/data alpine sh
+```
+
+This creates a new container named `new-container` and mounts `my-volume` to `/data` again.
+
+#### Step 6: Verify that the data persists
+
+Enter the new container:
+
+```bash
+docker exec -it new-container sh
+```
+
+Then verify that the data persists by checking the contents of the file:
+
+```bash
+cat /data/test.txt
+'''
+
+You should see:
+
+bash
+This is persistent data. Learning at Trevotech
+```
+
+### **Summary**:
+- You don’t need to create any files.
+- Just run each command one by one in the terminal, which can be opened in **VS Code** or your system's default terminal. 
+

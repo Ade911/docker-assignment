@@ -1,0 +1,5 @@
+To create custom network
+docker network create --driver bridge --subnet 192.168.10.0/24 --gateway 192.168.10.1 my-custom-network
+
+To execute the network created
+docker run -dit --name container1 --network my-custom-network alpine sh
